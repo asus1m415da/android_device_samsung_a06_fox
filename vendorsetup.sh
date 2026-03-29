@@ -1,6 +1,6 @@
 #
 #	This file is part of the OrangeFox Recovery Project
-# 	Copyright (C) 2020-2021 The OrangeFox Recovery Project
+# 	Copyright (C) 2020-2024 The OrangeFox Recovery Project
 #
 #	OrangeFox is free software: you can redistribute it and/or modify
 #	it under the terms of the GNU General Public License as published by
@@ -36,35 +36,35 @@ fi
 
 if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 
-    export TW_DEFAULT_LANGUAGE="en"
-	export ALLOW_MISSING_DEPENDENCIES=true
- 	export LC_ALL="C"
+    export TW_DEFAULT_LANGUAGE="es"
+    export ALLOW_MISSING_DEPENDENCIES=true
+    export LC_ALL="C"
 
-    export OF_MAINTAINER="IsaacCodesStuff"
-	export FOX_BUILD_TYPE="Stable - Unofficial"
-	export FOX_VERSION="R11.1"
+    # Datos del compilador y versión actualizados para R12.1+
+    export OF_MAINTAINER="Cat"
+    export FOX_BUILD_TYPE="Unofficial"
+    export FOX_MAINTAINER_PATCH_VERSION="v1"
 
+    # Funciones y UI de OrangeFox
     export OF_DISABLE_MIUI_SPECIFIC_FEATURES=1
     export FOX_USE_NANO_EDITOR=1
- 	export FOX_DELETE_MAGISK_ADDON=1
-	export OF_HIDE_NOTCH=1
-	export OF_CLOCK_POS=1
-	export OF_ALLOW_DISABLE_NAVBAR=0
-	export OF_USE_SYSTEM_FINGERPRINT=1
+    export FOX_DELETE_MAGISK_ADDON=1
+    export OF_HIDE_NOTCH=1
+    export OF_CLOCK_POS=1
+    export OF_ALLOW_DISABLE_NAVBAR=0
+    export OF_USE_SYSTEM_FINGERPRINT=1
     export FOX_ENABLE_APP_MANAGER=1
-	export FOX_USE_BASH_SHELL=1
-	export FOX_ASH_IS_BASH=1
-	export FOX_USE_TAR_BINARY=1
-	export FOX_USE_SED_BINARY=1
-	export FOX_USE_XZ_UTILS=1
+    export FOX_USE_BASH_SHELL=1
+    export FOX_ASH_IS_BASH=1
+    export FOX_USE_TAR_BINARY=1
+    export FOX_USE_SED_BINARY=1
+    export FOX_USE_XZ_UTILS=1
 
-
-
-		# let's see what are our build VARs
-		if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
-		  export | grep "FOX" >> $FOX_BUILD_LOG_FILE
-		  export | grep "OF_" >> $FOX_BUILD_LOG_FILE
-		  export | grep "TARGET_" >> $FOX_BUILD_LOG_FILE
-		  export | grep "TW_" >> $FOX_BUILD_LOG_FILE
-		fi
+    # let's see what are our build VARs
+    if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
+      export | grep "FOX" >> $FOX_BUILD_LOG_FILE
+      export | grep "OF_" >> $FOX_BUILD_LOG_FILE
+      export | grep "TARGET_" >> $FOX_BUILD_LOG_FILE
+      export | grep "TW_" >> $FOX_BUILD_LOG_FILE
+    fi
 fi
